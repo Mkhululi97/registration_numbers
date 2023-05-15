@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Registration Numbers</title>
   </head>
   <body>
+    <p class="error-msg hidden">'Error'</p>
+    <div class="eg-reg-format">
+      <span>Format example:</span> CA 334536 | CA 334 536 | CA 334-536
+    </div>
     <label class="reg-num-label" for="reg-num">
       Enter a Registration Number:
     </label>
     <input class="text-input" type="text" placeholder="eg: CA 33453" />
     <button class="add-btn">Add registration</button>
-    <div class="display-reg-num"></div>
+    <div class="reg-num-container">
+      <div class="reg-num"></div>
+    </div>
     <script src="functions/RegistrationNumbers.js" charset="utf-8"></script>
     <script src="functions/registrationNumbersDOM.js" charset="utf-8"></script>
   </body>
