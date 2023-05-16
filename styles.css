@@ -1,18 +1,24 @@
+/* https://coolors.co/palette/d8f3dc-b7e4c7-95d5b2-74c69d-52b788-40916c-2d6a4f-1b4332-081c15 */
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
 }
 html {
-  /* font-size: ; */
+  font-size: 62.5%;
 }
 body {
   font-family: "Lato", sans-serif;
-  background-image: url(img-registration1.jpg);
+  background-image: url(img-registration-numbers.jpg);
   background-size: cover;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(7px);
   height: 100vh;
   background-repeat: no-repeat;
+}
+article {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 .container {
   padding: 10px;
@@ -24,17 +30,52 @@ body {
 .error-msg {
   color: red;
 }
-p,
-span,
-div,
-label {
+.reg-format,
+label,
+.reg-num {
   color: white;
-  font-size: 18px;
+  font-size: 2.2rem;
   font-weight: 700;
 }
 button {
   border: none;
-  padding: 11px;
+  letter-spacing: 0.8px;
+}
+.input-btn-container,
+.btn-container,
+.select-btn-container {
+  display: flex;
+  gap: 20px;
+}
+.select-btn-container {
+  gap: 10px;
+}
+.add-btn {
+  background-color: #1b4332;
+  border: 3px solid #b7e4c7;
+  border-radius: 7px;
+  color: #d8f3dc;
+  padding: 9px 18px;
+}
+.filter-btn,
+.clear-btn {
+  background-color: #2d6a4f;
+  border: 3px dotted #d8f3dc;
+  border-radius: 14px;
+  color: #d8f3dc;
+}
+.add-btn-container {
+  gap: 5px;
+}
+.btn-container p,
+.icon {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.filter-btn-container,
+.clear-btn-container {
+  padding: 7px 17px;
+  gap: 5px;
 }
 .reg-format {
   margin-bottom: 10px;
@@ -50,20 +91,47 @@ select {
 .reg-num {
   width: fit-content;
   padding: 10px;
-  background-color: rgb(17, 138, 63);
+  background-color: #52b788;
+  color: #d8f3dc;
+  border: 3px solid #1b4332;
   margin-block: 15px;
+  min-height: 27px;
+  max-width: 400px;
+  margin-right: 12px;
 }
-/*  DESKTOP 
-article {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  margin-top: 50px;
+.reg-num-container {
+  display: flex;
+  flex-wrap: wrap;
 }
-p,
-span,
-div,
-label {
-  font-size: 24px;
+@media (min-width: 43em) {
+  article {
+    max-width: 57rem;
+  }
+  .error-msg {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+  }
+  .reg-format,
+  label,
+  .reg-num {
+    color: #d8f3dc;
+    font-size: 2.8rem;
+    font-weight: 700;
+  }
+  .text-input,
+  select {
+    padding: 15px;
+  }
+  .add-btn {
+    padding: 9px 32px;
+  }
+  .btn-container p,
+  .icon {
+    font-size: 2.2rem;
+  }
+  .input-btn-container,
+  .btn-container,
+  .select-btn-container {
+    align-items: center;
+  }
 }
-*/

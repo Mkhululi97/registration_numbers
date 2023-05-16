@@ -19,22 +19,54 @@
         </label>
         <div class="input-btn-container">
           <input class="text-input" type="text" placeholder="eg: CA 334-853" />
-          <button class="add-btn">Add registration</button>
+          <button class="add-btn">
+            <div class="btn-container add-btn-container">
+              <ion-icon
+                class="icon add-icon"
+                name="add-circle-outline"
+              ></ion-icon>
+              <p>Add</p>
+            </div>
+          </button>
         </div>
         <div class="reg-num-container">
           <div></div>
         </div>
-        <select name="towns" id="dropdown">
-          <option value="">Select a Town</option>
-          <option value="CA">Cape Town</option>
-          <option value="CL">Stellenbosch</option>
-          <option value="CJ">Paarl</option>
-          <option value="CK">Malmesbury</option>
-          <option value="CF">Kuils River</option>
-        </select>
-        <button class="filter-btn">filter</button>
+        <div class="select-btn-container">
+          <select name="towns" id="dropdown">
+            <option value="">Select a Town</option>
+            <option value="CA">Cape Town</option>
+            <option value="CL">Stellenbosch</option>
+            <option value="CJ">Paarl</option>
+            <option value="CK">Malmesbury</option>
+            <option value="CF">Kuils River</option>
+          </select>
+          <button class="filter-btn">
+            <div class="btn-container filter-btn-container">
+              <ion-icon
+                class="icon filter-icon"
+                name="filter-outline"
+              ></ion-icon>
+              <p>Filter</p>
+            </div>
+          </button>
+          <button class="clear-btn">
+            <div class="btn-container clear-btn-container">
+              <ion-icon class="icon clear-icon" name="trash-outline"></ion-icon>
+              <p>Clear</p>
+            </div>
+          </button>
+        </div>
       </div>
     </article>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <script src="functions/RegistrationNumbers.js" charset="utf-8"></script>
     <script src="functions/registrationNumbersDOM.js" charset="utf-8"></script>
   </body>
