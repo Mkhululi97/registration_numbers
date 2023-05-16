@@ -4,11 +4,13 @@ const parentEl = document.querySelector(".reg-num-container");
 const dropdown = document.querySelector("dropdown");
 const addBtn = document.querySelector(".add-btn");
 const filterBtn = document.querySelector(".filter-btn");
+const clearBtn = document.querySelector(".clear-btn");
+const selectMenu = document.querySelector("select");
 const numberPlateArr = [];
 const regNum = RegNumbers();
 
 addBtn.addEventListener("click", function () {
-  let firstRegNum = document.querySelector(".reg-num");
+  let firstRegNum = document.querySelector(".first-reg-num");
   regNum.setRegNum(inputRegNum.value);
   errorMsgEl.innerHTML = regNum.errorMsg();
   if (regNum.errorMsg().length > 0) {
@@ -22,22 +24,38 @@ addBtn.addEventListener("click", function () {
   // create div elements dynamically
   if (regNum.errorMsg().length < 1) {
     let numberPlate = regNum.validRegNum();
-    numberPlateArr.push(numberPlate);
+
     //create new element
-    let newNumberPlate = document.createElement("div");
+    let newNumberPlateEl = document.createElement("div");
     // populate new element with text from the input
-    newNumberPlate.textContent = numberPlate;
+    newNumberPlateEl.textContent = numberPlate;
     // add class name
-    newNumberPlate.classList.add("reg-num");
-    // append the new element to the parentEl
-    // localStorage.setItem("number plate", numberPlateArr);
-    // let localNumPlates = localStorage.getItem("number plate");
-    // parentEl.insertBefore(localNumPlates, firstRegNum);
-    parentEl.insertBefore(newNumberPlate, firstRegNum);
+    newNumberPlateEl.classList.add("reg-num");
+    // push new div element to array
+    numberPlateArr.push(newNumberPlateEl.outerHTML);
+    // adds new div element to localstorage
+    localStorage.setItem("number plate", JSON.stringify(numberPlateArr));
+    // create new div element
+    let finalEl = document.createElement("div");
+    // set new div element with div from localstorage, returning a nested div
+    finalEl.innerHTML = numberPlateArr[numberPlateArr.length - 1]; // always get last element add to the array
+    // appends the actual from localStorage element to the parentEl
+    parentEl.insertBefore(finalEl.firstChild, firstRegNum);
   }
   inputRegNum.value = "";
 });
+
 filterBtn.addEventListener("click", function () {
   regNum.getRegNumbersMap();
-  console.log(regNum.selectedTown("CA"));
+  if (selectMenu.value !== "") {
+    alert(regNum.selectedTown(selectMenu.value));
+  }
+});
+clearBtn.addEventListener("click", function () {
+  // clear textContent of newNumberPlateEl
+  // removeAll newNumberPlateEl
+  // hide parent element
+  // call the clearMap method
+  // call the clearFilteredTown method
+  // parentEl.textContent = localStorage.getItem("number plate");
 });

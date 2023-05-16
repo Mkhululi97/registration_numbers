@@ -96,4 +96,34 @@ describe("Testing RegistrationNumber Function", function () {
       assert.deepEqual(CKRegNumArr, regNum.selectedTown("CK"));
     });
   });
+  describe("Clearing The Registration Map And The Filtered Town Array", function () {
+    it("should clear all the data inside the 'regNumbersMap' and return an empty Map", function () {
+      let regNum = RegNumbers();
+      regNum.setRegNum("CK 222-909");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 222 923");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 22239");
+      regNum.validRegNum();
+      regNum.setRegNum("CA 113 909");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 334232");
+      regNum.validRegNum();
+      assert.deepEqual({}, regNum.clearMap());
+    });
+    it("should clear all the Registration Numbers in the 'filteredTownArr' ", function () {
+      let regNum = RegNumbers();
+      regNum.setRegNum("CK 222-909");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 222 923");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 22239");
+      regNum.validRegNum();
+      regNum.setRegNum("CA 113 909");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 334232");
+      regNum.validRegNum();
+      assert.deepEqual([], regNum.clearFilteredTown());
+    });
+  });
 });

@@ -33,7 +33,7 @@ article {
 .reg-format,
 label,
 .reg-num {
-  color: white;
+  color: #d8f3dc;
   font-size: 2.2rem;
   font-weight: 700;
 }
@@ -70,7 +70,7 @@ button {
 .btn-container p,
 .icon {
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 .filter-btn-container,
 .clear-btn-container {
@@ -88,7 +88,8 @@ select {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-.reg-num {
+.reg-num,
+.number-plates-from {
   width: fit-content;
   padding: 10px;
   background-color: #52b788;

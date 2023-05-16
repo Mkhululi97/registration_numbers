@@ -1,6 +1,7 @@
 function RegNumbers() {
   let numPlate = "";
   let regNumbersMap = {};
+  let filteredTown;
   const regex = /^(CA|CL|CJ|CK|CF)\s\d{3}(-? ?\d{1,3})$/i;
   function setRegNum(input) {
     numPlate = input.toUpperCase();
@@ -38,7 +39,7 @@ function RegNumbers() {
     }
   }
   function selectedTown(town) {
-    const filteredTown = [];
+    filteredTown = [];
     for (const registration in regNumbersMap) {
       if (registration.startsWith(town)) {
         filteredTown.push(registration);
@@ -46,11 +47,19 @@ function RegNumbers() {
     }
     return filteredTown;
   }
+  function clearMap() {
+    return (regNumbersMap = {});
+  }
+  function clearFilteredTown() {
+    return (filteredTown = []);
+  }
   return {
     setRegNum,
     validRegNum,
     errorMsg,
     getRegNumbersMap,
     selectedTown,
+    clearMap,
+    clearFilteredTown,
   };
 }
