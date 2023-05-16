@@ -49,4 +49,51 @@ describe("Testing RegistrationNumber Function", function () {
       assert.equal("registration exists", regNum.errorMsg());
     });
   });
+  describe("Get Registration Numbers From A Town", function () {
+    it("should return a list of registration numbers from CA", function () {
+      const regNum = RegNumbers();
+      const CARegNumArr = ["CA 222-909", "CA 22239", "CA 113 909"];
+      regNum.setRegNum("CA 222-909");
+      regNum.validRegNum();
+      regNum.setRegNum("CF 222 923");
+      regNum.validRegNum();
+      regNum.setRegNum("CA 22239");
+      regNum.validRegNum();
+      regNum.setRegNum("CA 113 909");
+      regNum.validRegNum();
+      regNum.setRegNum("CF 334232");
+      regNum.validRegNum();
+      assert.deepEqual(CARegNumArr, regNum.selectedTown("CA"));
+    });
+    it("should return a list of registration numbers from CF", function () {
+      const regNum = RegNumbers();
+      const CFRegNumArr = ["CF 222 923", "CF 334232"];
+      regNum.setRegNum("CA 222-909");
+      regNum.validRegNum();
+      regNum.setRegNum("CF 222 923");
+      regNum.validRegNum();
+      regNum.setRegNum("CA 22239");
+      regNum.validRegNum();
+      regNum.setRegNum("CA 113 909");
+      regNum.validRegNum();
+      regNum.setRegNum("CF 334232");
+      regNum.validRegNum();
+      assert.deepEqual(CFRegNumArr, regNum.selectedTown("CF"));
+    });
+    it("should return a list of registration numbers from CK", function () {
+      const regNum = RegNumbers();
+      const CKRegNumArr = ["CK 222-909", "CK 222 923", "CK 22239", "CK 334232"];
+      regNum.setRegNum("CK 222-909");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 222 923");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 22239");
+      regNum.validRegNum();
+      regNum.setRegNum("CA 113 909");
+      regNum.validRegNum();
+      regNum.setRegNum("CK 334232");
+      regNum.validRegNum();
+      assert.deepEqual(CKRegNumArr, regNum.selectedTown("CK"));
+    });
+  });
 });

@@ -8,18 +8,33 @@
     <title>Registration Numbers</title>
   </head>
   <body>
-    <p class="error-msg hidden">'Error'</p>
-    <div class="eg-reg-format">
-      <span>Format example:</span> CA 334536 | CA 334 536 | CA 334-536
-    </div>
-    <label class="reg-num-label" for="reg-num">
-      Enter a Registration Number:
-    </label>
-    <input class="text-input" type="text" placeholder="eg: CA 33453" />
-    <button class="add-btn">Add registration</button>
-    <div class="reg-num-container">
-      <div class="reg-num"></div>
-    </div>
+    <article>
+      <div class="container">
+        <div class="reg-format">
+          <span>Format example:</span> CA 334536 | CA 334 536 | CA 334-536
+        </div>
+        <p class="error-msg hidden">'Error'</p>
+        <label class="reg-num-label" for="reg-num">
+          Enter a Registration Number:
+        </label>
+        <div class="input-btn-container">
+          <input class="text-input" type="text" placeholder="eg: CA 334-853" />
+          <button class="add-btn">Add registration</button>
+        </div>
+        <div class="reg-num-container">
+          <div></div>
+        </div>
+        <select name="towns" id="dropdown">
+          <option value="">Select a Town</option>
+          <option value="CA">Cape Town</option>
+          <option value="CL">Stellenbosch</option>
+          <option value="CJ">Paarl</option>
+          <option value="CK">Malmesbury</option>
+          <option value="CF">Kuils River</option>
+        </select>
+        <button class="filter-btn">filter</button>
+      </div>
+    </article>
     <script src="functions/RegistrationNumbers.js" charset="utf-8"></script>
     <script src="functions/registrationNumbersDOM.js" charset="utf-8"></script>
   </body>

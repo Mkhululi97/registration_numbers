@@ -1,6 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
+}
+html {
+  /* font-size: ; */
+}
+body {
+  font-family: "Lato", sans-serif;
+  background-image: url(img-registration1.jpg);
+  background-size: cover;
+  backdrop-filter: blur(1px);
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+.container {
+  padding: 10px;
+  padding-top: 50px;
 }
 .hidden {
   display: none;
@@ -8,3 +24,46 @@
 .error-msg {
   color: red;
 }
+p,
+span,
+div,
+label {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+button {
+  border: none;
+  padding: 11px;
+}
+.reg-format {
+  margin-bottom: 10px;
+}
+.text-input,
+select {
+  padding: 10px;
+}
+.input-btn-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.reg-num {
+  width: fit-content;
+  padding: 10px;
+  background-color: rgb(17, 138, 63);
+  margin-block: 15px;
+}
+/*  DESKTOP 
+article {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 50px;
+}
+p,
+span,
+div,
+label {
+  font-size: 24px;
+}
+*/

@@ -19,7 +19,7 @@ function RegNumbers() {
       }
     }
   }
-  function getRegNumberArr() {
+  function getRegNumbersMap() {
     return regNumbersMap;
   }
   function errorMsg() {
@@ -37,10 +37,20 @@ function RegNumbers() {
       return "";
     }
   }
+  function selectedTown(town) {
+    const filteredTown = [];
+    for (const registration in regNumbersMap) {
+      if (registration.startsWith(town)) {
+        filteredTown.push(registration);
+      }
+    }
+    return filteredTown;
+  }
   return {
     setRegNum,
     validRegNum,
     errorMsg,
-    getRegNumberArr,
+    getRegNumbersMap,
+    selectedTown,
   };
 }
