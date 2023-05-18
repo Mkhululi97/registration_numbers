@@ -5,19 +5,22 @@ const addBtn = document.querySelector(".add-btn");
 const filterBtn = document.querySelector(".filter-btn");
 const clearBtn = document.querySelector(".clear-btn");
 const selectMenu = document.querySelector("select");
-const numberPlateArr = [];
-const regNum = RegNumbers();
 
-const numberPlateFromLocalStorageArr = JSON.parse(
-  localStorage.getItem("number plate")
-);
-if (numberPlateFromLocalStorageArr !== null) {
-  numberPlateFromLocalStorageArr.forEach(function (currentNumberPlate) {
-    if (currentNumberPlate !== null) {
-      createDivElement(currentNumberPlate);
-    }
+// retrieved existing registrations
+let numberPlateFromLocalStorageObj;
+if (localStorage["number plate"]) {
+  numberPlateFromLocalStorageObj = JSON.parse(
+    localStorage.getItem("number plate")
+  );
+}
+// adding registrations on existing ones
+if (numberPlateFromLocalStorageObj) {
+  let existingRegistrations = Object.keys(numberPlateFromLocalStorageObj); // returs arr.
+  existingRegistrations.forEach(function (currentNumberPlate) {
+    createDivElement(currentNumberPlate);
   });
 }
+const regNum = RegNumbers(numberPlateFromLocalStorageObj);
 function createDivElement(input) {
   // create element
   let childEl = document.createElement("div");
@@ -43,10 +46,11 @@ function addBtnFunction() {
     errorMsgEl.classList.add("hidden");
   }
   let numberPlate = regNum.validRegNum();
-  // push numberplates to number plate arr
-  numberPlateArr.push(numberPlate);
-  // setup local storage
-  localStorage.setItem("number plate", JSON.stringify(numberPlateArr));
+  // storing our object to local storage and coverting object to string with JSON.stringify.
+  localStorage.setItem(
+    "number plate",
+    JSON.stringify(regNum.getRegNumbersMap())
+  );
   createDivElement(numberPlate);
 }
 function filterBtnFunction() {

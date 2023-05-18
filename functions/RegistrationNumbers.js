@@ -1,6 +1,6 @@
-function RegNumbers() {
+function RegNumbers(numberPlateFromLocalStorageObj) {
   let numPlate = "";
-  let regNumbersMap = {};
+  let regNumbersMap = numberPlateFromLocalStorageObj || {};
   let filteredTown;
   const regex = /^(CA|CL|CJ|CK|CF)\s\d{3}(-? ?\d{1,3})$/i;
   function setRegNum(input) {
