@@ -13,7 +13,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   backdrop-filter: blur(7px);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 article {
@@ -34,7 +34,8 @@ article {
 }
 .reg-format,
 label,
-.reg-num {
+.reg-num,
+.msg {
   color: #d8f3dc;
   font-size: 2.2rem;
   font-weight: 700;
@@ -59,6 +60,9 @@ button {
   border-radius: 7px;
   color: #d8f3dc;
   padding: 9px 18px;
+}
+.msg {
+  text-transform: uppercase;
 }
 .filter-btn,
 .clear-btn {

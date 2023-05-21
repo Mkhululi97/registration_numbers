@@ -1,6 +1,7 @@
 const errorMsgEl = document.querySelector(".error-msg");
 const inputRegNum = document.querySelector(".text-input");
 const parentEl = document.querySelector(".reg-num-container");
+const messageEl = document.querySelector(".msg");
 const addBtn = document.querySelector(".add-btn");
 const filterBtn = document.querySelector(".filter-btn");
 const clearBtn = document.querySelector(".clear-btn");
@@ -21,6 +22,12 @@ if (numberPlateFromLocalStorageObj) {
   });
 }
 const regNum = RegNumbers(numberPlateFromLocalStorageObj);
+function msg(inputMessage) {
+  messageEl.innerHTML = inputMessage;
+  setTimeout(function () {
+    messageEl.innerHTML = "";
+  }, 1500);
+}
 function createDivElement(input) {
   // create element
   let childEl = document.createElement("div");
@@ -52,18 +59,28 @@ function addBtnFunction() {
     JSON.stringify(regNum.getRegNumbersMap())
   );
   createDivElement(numberPlate);
+  inputRegNum.value = "";
 }
 function filterBtnFunction() {
+  let selectedTownExists = "";
   let childElArr = Array.from(parentEl.children);
   childElArr.forEach(function (child) {
     if (child.innerHTML.startsWith(selectMenu.value)) {
+      selectedTownExists = selectMenu.value;
       child.classList.remove("hidden");
     } else {
       child.classList.add("hidden");
     }
   });
+  if (selectedTownExists === "" && selectMenu.value !== "")
+    msg("no registration(s) from selected town");
 }
 function clearBtnFunction() {
+  if (parentEl.lastElementChild === null) {
+    msg("no registrations to clear");
+  } else {
+    msg("registrations cleared");
+  }
   // remove all child element from the parent element and clears the registration numbers
   while (parentEl.lastElementChild) {
     parentEl.removeChild(parentEl.lastElementChild);
