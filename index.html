@@ -5,59 +5,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <title>Registration Numbers</title>
   </head>
   <body>
-    <article>
-      <div class="container">
-        <div class="reg-format">
-          <span>Format example:</span> CA 334536 | CA 334 536 | CA 334-536
+    <main class="article-container">
+      <article>
+        <div class="container">
+          <div class="reg-format">
+            <span>Format example:</span> CA 334536 | CA 334 536 | CA 334-536
+          </div>
+          <p class="error-msg hidden">'Error'</p>
+          <label class="reg-num-label" for="reg-num">
+            Enter a Registration Number:
+          </label>
+          <div class="input-btn-container">
+            <input
+              class="text-input"
+              type="text"
+              placeholder="eg: CA 334-853"
+            />
+            <button class="add-btn">
+              <div class="btn-container add-btn-container">
+                <ion-icon
+                  class="icon add-icon"
+                  name="add-circle-outline"
+                ></ion-icon>
+                <p>Add</p>
+              </div>
+            </button>
+          </div>
+          <p class="msg"></p>
+          <div class="reg-num-container"></div>
+          <div class="select-btn-container">
+            <select name="towns" id="dropdown">
+              <option value="">Select a Town</option>
+              <option value="CA">Cape Town (CA)</option>
+              <option value="CL">Stellenbosch (CL)</option>
+              <option value="CJ">Paarl (CJ)</option>
+              <option value="CK">Malmesbury (CK)</option>
+              <option value="CF">Kuils River (CF)</option>
+            </select>
+            <button class="filter-btn">
+              <div class="btn-container filter-btn-container">
+                <ion-icon
+                  class="icon filter-icon"
+                  name="filter-outline"
+                ></ion-icon>
+                <p>Filter</p>
+              </div>
+            </button>
+            <button class="clear-btn">
+              <div class="btn-container clear-btn-container">
+                <ion-icon
+                  class="icon clear-icon"
+                  name="trash-outline"
+                ></ion-icon>
+                <p>Clear</p>
+              </div>
+            </button>
+          </div>
         </div>
-        <p class="error-msg hidden">'Error'</p>
-        <label class="reg-num-label" for="reg-num">
-          Enter a Registration Number:
-        </label>
-        <div class="input-btn-container">
-          <input class="text-input" type="text" placeholder="eg: CA 334-853" />
-          <button class="add-btn">
-            <div class="btn-container add-btn-container">
-              <ion-icon
-                class="icon add-icon"
-                name="add-circle-outline"
-              ></ion-icon>
-              <p>Add</p>
-            </div>
-          </button>
+      </article>
+
+      <article>
+        <div class="container">
+          <div class="reg-format">
+            <span>Format example:</span> CA 334536 | CA 334 536 | CA 334-536
+          </div>
+          <p class="error-msg error-msg-handlebars hidden">'Error'</p>
+          <label class="reg-num-label" for="reg-num">
+            Enter a Registration Number:
+          </label>
+          <div class="input-btn-container">
+            <input
+              class="text-input text-input-handlebars"
+              type="text"
+              placeholder="eg: CA 334-853"
+            />
+            <button class="add-btn add-btn-handlebars">
+              <div class="btn-container add-btn-container">
+                <ion-icon
+                  class="icon add-icon"
+                  name="add-circle-outline"
+                ></ion-icon>
+                <p>Add</p>
+              </div>
+            </button>
+          </div>
+          <p class="msg msg-handlebars"></p>
+          <div class="reg-num-container reg-num-container-handlebars"></div>
+          <div class="select-btn-container">
+            <select class="select-handlebars" name="towns" id="dropdown">
+              <option value="">Select a Town</option>
+              <option value="CA">Cape Town (CA)</option>
+              <option value="CL">Stellenbosch (CL)</option>
+              <option value="CJ">Paarl (CJ)</option>
+              <option value="CK">Malmesbury (CK)</option>
+              <option value="CF">Kuils River (CF)</option>
+            </select>
+            <button class="filter-btn filter-btn-handlebars">
+              <div class="btn-container filter-btn-container">
+                <ion-icon
+                  class="icon filter-icon"
+                  name="filter-outline"
+                ></ion-icon>
+                <p>Filter</p>
+              </div>
+            </button>
+            <button class="clear-btn clear-btn-handlebars">
+              <div class="btn-container clear-btn-container">
+                <ion-icon
+                  class="icon clear-icon"
+                  name="trash-outline"
+                ></ion-icon>
+                <p>Clear</p>
+              </div>
+            </button>
+          </div>
         </div>
-        <p class="msg"></p>
-        <div class="reg-num-container"></div>
-        <div class="select-btn-container">
-          <select name="towns" id="dropdown">
-            <option value="">Select a Town</option>
-            <option value="CA">Cape Town (CA)</option>
-            <option value="CL">Stellenbosch (CL)</option>
-            <option value="CJ">Paarl (CJ)</option>
-            <option value="CK">Malmesbury (CK)</option>
-            <option value="CF">Kuils River (CF)</option>
-          </select>
-          <button class="filter-btn">
-            <div class="btn-container filter-btn-container">
-              <ion-icon
-                class="icon filter-icon"
-                name="filter-outline"
-              ></ion-icon>
-              <p>Filter</p>
-            </div>
-          </button>
-          <button class="clear-btn">
-            <div class="btn-container clear-btn-container">
-              <ion-icon class="icon clear-icon" name="trash-outline"></ion-icon>
-              <p>Clear</p>
-            </div>
-          </button>
-        </div>
-      </div>
-    </article>
+      </article>
+    </main>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -68,5 +136,18 @@
     ></script>
     <script src="functions/RegistrationNumbers.js" charset="utf-8"></script>
     <script src="functions/registrationNumbersDOM.js" charset="utf-8"></script>
+
+    <!-- BUILDING UP THE TEMPLATE -->
+    <script id="template" type="text/x-handlebars-template">
+      <div class="reg-num reg-num-template">
+        {{#each registration_number}}
+          {{this}}
+          <br />
+        {{/each}}
+      </div>
+    </script>
+    <script src="functions/registrationHandlebars.js" charset="utf-8"></script>
   </body>
 </html>
+
+<!-- {{registration_number}} -->

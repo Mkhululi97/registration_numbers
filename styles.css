@@ -15,13 +15,19 @@ body {
   backdrop-filter: blur(7px);
   min-height: 100vh;
 }
-
-article {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
+.article-container,
+.input-btn-container,
+.btn-container,
+.select-btn-container {
+  display: flex;
+  gap: 20px;
 }
-.container {
+.article-container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-container .container {
   padding: 10px;
   padding-top: 50px;
 }
@@ -44,12 +50,7 @@ button {
   border: none;
   letter-spacing: 0.8px;
 }
-.input-btn-container,
-.btn-container,
-.select-btn-container {
-  display: flex;
-  gap: 20px;
-}
+
 .select-btn-container {
   flex-direction: column;
   gap: 10px;
@@ -115,9 +116,13 @@ select {
 .hidden {
   display: none;
 }
-@media (min-width: 43em) {
+@media (min-width: 68em) {
   article {
     max-width: 57rem;
+  }
+  .article-container {
+    flex-direction: row;
+    justify-content: center;
   }
   .error-msg {
     font-size: 2.8rem;
